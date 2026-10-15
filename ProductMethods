@@ -1,0 +1,71 @@
+
+public class ProductMethods {
+    static String[] products = {
+        "Notebook", "Pen", "Bottle", "Bag"
+    };
+
+    static double[] prices = {
+        60, 20, 180, 750
+    };
+
+    static void displayProducts() {
+        for (int i = 0; i < products.length; i++) {
+            System.out.println(
+                (i + 1) + ". " + products[i]
+                + " - Rs. " + prices[i]
+            );
+        }
+    }
+
+    static int searchProduct(String name) {
+        for (int i = 0; i < products.length; i++) {
+            if (products[i].equalsIgnoreCase(name)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    static double calculateTotal(int index, int quantity) {
+        return prices[index] * quantity;
+    }
+
+    static double calculateAverage() {
+        double sum = 0;
+
+        for (double price : prices) {
+            sum += price;
+        }
+
+        return sum / prices.length;
+    }
+
+    
+    static int countItems(int quantity) {
+        if (quantity <= 0) {
+            return 0;
+        }
+        return 1 + countItems(quantity - 1);
+    }
+
+    public static void main(String[] args) {
+        displayProducts();
+
+        int index = searchProduct("Bottle");
+
+        if (index != -1) {
+            System.out.println("Product found: " + products[index]);
+            System.out.println(
+                "Bill: Rs. " + calculateTotal(index, 2)
+            );
+        } else {
+            System.out.println("Product not found.");
+        }
+
+        System.out.println(
+            "Average price: Rs. " + calculateAverage()
+        );
+
+        System.out.println("Number of items: " + countItems(3));
+    }
+}
