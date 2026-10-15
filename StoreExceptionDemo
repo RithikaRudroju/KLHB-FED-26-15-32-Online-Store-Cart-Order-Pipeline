@@ -1,0 +1,36 @@
+
+class Item {
+    void display() {
+        System.out.println("Store item");
+    }
+}
+
+class ElectronicItem extends Item {
+    @Override
+    void display() {
+        System.out.println("Electronic product");
+    }
+}
+
+public class StoreExceptionDemo {
+    public static void main(String[] args) {
+        Item item = new ElectronicItem();
+        item.display();
+
+        try {
+            int quantity = 0;
+
+            if (quantity <= 0) {
+                throw new IllegalArgumentException(
+                    "Quantity must be positive."
+                );
+            }
+
+            System.out.println("Order placed.");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            System.out.println("Order processing completed.");
+        }
+    }
+}
