@@ -1,0 +1,37 @@
+
+import java.util.Scanner;
+
+public class ProductBilling {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int productId;
+        String productName;
+        double price;
+        int quantity;
+
+        System.out.print("Enter Product ID: ");
+        productId = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Product Name: ");
+        productName = sc.nextLine();
+
+        System.out.print("Enter Price: ");
+        price = sc.nextDouble();
+
+        System.out.print("Enter Quantity: ");
+        quantity = sc.nextInt();
+
+        double total = price * quantity;
+
+        System.out.println("\n--- Product Bill ---");
+        System.out.println("Product ID: " + productId);
+        System.out.println("Product Name: " + productName);
+        System.out.printf("Price: Rs. %.2f%n", price);
+        System.out.println("Quantity: " + quantity);
+        System.out.printf("Total Bill: Rs. %.2f%n", total);
+
+        sc.close();
+    }
+}
