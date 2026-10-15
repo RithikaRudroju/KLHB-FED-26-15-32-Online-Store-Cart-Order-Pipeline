@@ -1,0 +1,53 @@
+
+import java.util.Scanner;
+
+public class ShoppingCart {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double total = 0;
+        int choice;
+
+        do {
+            System.out.println("\n--- ONLINE STORE ---");
+            System.out.println("1. Notebook - Rs. 60");
+            System.out.println("2. Pen Pack - Rs. 45");
+            System.out.println("3. Backpack - Rs. 750");
+            System.out.println("4. View Total");
+            System.out.println("5. Exit");
+            System.out.print("Enter choice: ");
+
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    total += 60;
+                    System.out.println("Notebook added.");
+                    break;
+
+                case 2:
+                    total += 45;
+                    System.out.println("Pen Pack added.");
+                    break;
+
+                case 3:
+                    total += 750;
+                    System.out.println("Backpack added.");
+                    break;
+
+                case 4:
+                    System.out.println("Total Bill: Rs. " + total);
+                    break;
+
+                case 5:
+                    System.out.println("Thank you for shopping!");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice.");
+            }
+        } while (choice != 5);
+
+        sc.close();
+    }
+}
