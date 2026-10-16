@@ -1,0 +1,47 @@
+
+import java.util.Arrays;
+
+public class StoreStrings {
+    public static void main(String[] args) {
+        String[] products = {
+            "Notebook", "Pen", "Bottle", "Bag"
+        };
+
+        double[] prices = {60, 20, 180, 750};
+
+        String search = "pen";
+
+        for (String product : products) {
+            if (product.equalsIgnoreCase(search)) {
+                System.out.println("Product found: " + product);
+            }
+        }
+
+        String name = "  Notebook  ";
+        System.out.println(name.trim());
+        System.out.println(name.trim().toUpperCase());
+        System.out.println("Length: " + name.trim().length());
+
+        String text = "Pen,Bottle,Bag";
+        String[] items = text.split(",");
+
+        System.out.println("Products:");
+        for (String item : items) {
+            System.out.println(item);
+        }
+
+        Arrays.sort(prices);
+
+        System.out.println("Sorted prices:");
+        System.out.println(Arrays.toString(prices));
+
+        int position = Arrays.binarySearch(prices, 180);
+        System.out.println("Price found at index: " + position);
+
+        String a = new String("Notebook");
+        String b = new String("Notebook");
+
+        System.out.println(a.equals(b)); // true: same content
+        System.out.println(a == b);      // false: different objects
+    }
+}
