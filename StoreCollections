@@ -1,0 +1,48 @@
+
+import java.util.*;
+
+public class StoreCollections {
+    public static void main(String[] args) {
+        ArrayList<String> products = new ArrayList<>();
+
+        products.add("Notebook");
+        products.add("Pen");
+        products.add("Bottle");
+        products.add("Bag");
+
+        System.out.println("All products:");
+        products.forEach(System.out::println);
+
+        products.remove("Pen");
+        System.out.println("After removal: " + products);
+
+        HashMap<Integer, String> orders = new HashMap<>();
+
+        orders.put(1001, "Notebook");
+        orders.put(1002, "Bottle");
+
+        System.out.println("Order 1001: " + orders.get(1001));
+
+        HashSet<String> categories = new HashSet<>();
+        categories.add("Stationery");
+        categories.add("Electronics");
+        categories.add("Stationery");
+
+        System.out.println("Categories: " + categories);
+
+        System.out.println("Products containing 'o':");
+
+        products.stream()
+                .filter(p -> p.contains("o"))
+                .forEach(System.out::println);
+
+        long count = products.stream().count();
+        System.out.println("Product count: " + count);
+
+        List<String> sortedProducts = products.stream()
+                .sorted()
+                .toList();
+
+        System.out.println("Sorted products: " + sortedProducts);
+    }
+}
