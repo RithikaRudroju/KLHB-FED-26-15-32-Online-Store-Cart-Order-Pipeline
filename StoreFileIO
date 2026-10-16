@@ -1,0 +1,30 @@
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.io.IOException;
+
+public class StoreFileIO {
+    public static void main(String[] args) {
+        Path file = Path.of("orders.txt");
+
+        String order = "Order 1001, Notebook, Total Rs. 120";
+
+        try {
+            Files.writeString(
+                file,
+                order + System.lineSeparator(),
+                java.nio.file.StandardOpenOption.CREATE,
+                java.nio.file.StandardOpenOption.APPEND
+            );
+
+            System.out.println("Order saved successfully.");
+
+            String content = Files.readString(file);
+            System.out.println("Saved orders:");
+            System.out.println(content);
+
+        } catch (IOException e) {
+            System.out.println("File error: " + e.getMessage());
+        }
+    }
+}
